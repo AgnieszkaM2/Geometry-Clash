@@ -1,0 +1,94 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+          <div class="dropdown-content">
+            <a routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/ustawienia" routerLinkActive="active">Ustawienia</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+          </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+<br>
+<br>
+
+<div class="card" align="center">
+  <div class="register-header" align="center"><h1>Załóż konto</h1><hr></div>
+  <div class="register-form" align="center">
+    <form [formGroup]="registerForm" align="center" (ngSubmit)="register()">
+      <div class="form-group" align="center">
+        <br>
+        <label for="username">Nazwa użytkownika: </label><br><hr width="50%">
+        <input id="username" type="text" required name="username" minlength="4" maxlength="20" class="form-control" formControlName="username" placeholder="">
+        <br><label *ngIf="username?.touched && username?.errors?.required">Pole obowiązkowe.</label>
+        <br><label *ngIf="username?.touched && username?.errors?.minlength">Nazwa powinna mieć co najmniej 4 znaki.</label>
+        <br><label *ngIf="username?.touched && username?.errors?.maxlength">Nazwa powinna mieć nie więcej niż 20 znaków.</label>
+      </div>
+      <br>
+      <div class="form-group" align="center">
+        <label for="email">Email: </label><br><hr width="50%">
+        <input id="email" type="email" ngModel email required name="email" maxlength="50" class="form-control" formControlName="email" placeholder="">
+        <br><label *ngIf="email?.touched && email?.errors?.required">Pole obowiązkowe.</label>
+        <br><label *ngIf="email?.touched && email?.errors?.email">Nieprawidłowy adres e-mail.</label>
+      </div>
+      <br>
+      <div class="form-group" align="center">
+        <label for="password">Hasło: </label><br><hr width="50%">
+        <input id="password" type="password" required name="password" minlength="6" maxlength="20" class="form-control" formControlName="password" placeholder="">
+        <br><label *ngIf="password?.touched && password?.errors?.required">Pole obowiązkowe.</label>
+        <br><label *ngIf="password?.touched && password?.errors?.minlength">Hasło powinno mieć co najmniej 6 znaków.</label>
+        <br><label *ngIf="password?.touched && password?.errors?.maxlength">Hasło powinno mieć nie wiecej niż 20 znaków.</label>
+      </div>
+      <br>
+      <div class="form-group" align="center">
+        <label for="passwordConfirm">Potwierdź hasło: </label><br><hr width="50%">
+        <input id="passwordConfirm" type="password" required name="password" minlength="6" maxlength="20" class="form-control" formControlName="passwordConfirm" placeholder="">
+        <br><label *ngIf="passwordConfirm?.touched && passwordConfirm?.errors?.required">Pole obowiązkowe.</label>
+        <br><label *ngIf="(passwordConfirm?.touched || passwordConfirm?.dirty) && passwordConfirm?.errors?.passwordMismatch">Niezgodne hasło.</label>
+      </div>
+      <br><br><hr width="70%"><br>
+      <button type="submit" class="signup" [disabled]="(registerForm.invalid ||(passwordConfirm?.errors?.passwordMismatch || passwordConfirm?.errors?.required || password?.errors?.required || password?.errors?.minlength || password?.errors?.maxlength || email?.errors?.email || email?.errors?.required || username?.errors?.required || username?.errors?.minlength || username?.errors?.maxlength))">Zarejestruj się</button>
+    </form>
+  </div>
+</div>
+<div class= "card2" align="center" *ngIf="registerStatus">
+  <h1 align="center">Rejestracja konta przebiegła pomyślnie</h1><hr>
+  <br><h2 align="center">Przejdź na stronę logowania</h2><br>
+  <div class="log-register" align="center">
+    <p align="center"><a routerLink="/logowanie" routerLinkActive="active"><h2>Zaloguj się</h2></a></p>
+  </div>
+</div>
+<div class= "card2" align="center" *ngIf="registerError">
+  <h1 align="center">Nazwa użytkownika zajęta!</h1>
+  <br><h2 align="center">Spróbuj ponownie</h2><br>
+  <div class="log-register" align="center">
+    <p align="center"><button class="signup" (click)="goBack()">Powrót</button></p>
+  </div>
+</div>
+
+
+
+
+      
+  
+
+
+
+
+
+

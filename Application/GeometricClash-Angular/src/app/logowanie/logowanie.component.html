@@ -1,0 +1,77 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+          <div class="dropdown-content">
+            <a routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+          </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+<br>
+<div class="card3" align="center">
+  <div class="login-header" align="center"><h1>Zaloguj</h1><hr></div>
+  <div class="login-form" align="center">
+    <form [formGroup]="loginForm" align="center" (ngSubmit)="login()">
+      <div class="form-group" align="center">
+        <br>
+        <label for="username">Nazwa użytkownika: </label><br><hr width="50%">
+        <input id="username" type="text" required name="username" minlength="4" maxlength="20" class="form-control" formControlName="username" placeholder="">
+        <br><label *ngIf="username?.touched && username?.errors?.required">Pole obowiązkowe.</label>
+        <br><label *ngIf="username?.touched && username?.errors?.minlength">Nazwa powinna mieć co najmniej 4 znaki.</label>
+        <br><label *ngIf="username?.touched && username?.errors?.maxlength">Nazwa powinna mieć nie więcej niż 20 znaków.</label>
+      </div>
+      <div class="form-group" align="center">
+        <label for="password">Hasło: </label><br><hr width="50%">
+        <input id="password" type="password" required name="password" minlength="6" maxlength="20" class="form-control" formControlName="password" placeholder="">
+        <br><label *ngIf="password?.touched && password?.errors?.required">Pole obowiązkowe.</label>
+        <br><label *ngIf="password?.touched && password?.errors?.minlength">Hasło powinno mieć co najmniej 6 znaków.</label>
+        <br><label *ngIf="password?.touched && password?.errors?.maxlength">Hasło powinno mieć nie wiecej niż 20 znaków.</label>
+      </div>
+      <br><br><hr width="70%"><br>
+      <button type="submit" class="signup">Zaloguj się</button>
+    </form>
+  </div>
+  <br><hr width="80%"><br>
+  <h2>Zaloguj się za pomocą konta Facebook lub Google</h2>
+  <div class="social-login">
+    <div class="fb-login">
+      <app-login></app-login>
+    </div>    
+  </div>
+</div>
+<div class= "card4" align="center" *ngIf="loginStatus">
+  <h1 align="center">Pomyślnie zalogowano się</h1><hr>
+  <br><h2 align="center">Przejdź na stronę główną</h2><br>
+  <div class="log-register" align="center">
+    <p align="center"><a routerLink="/home" routerLinkActive="active"><h2>Strona główna</h2></a></p>
+    <br><h2 align="center">Przejdź do gry</h2><br>
+    <p align="center"><a routerLink="/gra" routerLinkActive="active"><h2>Gra</h2></a></p>
+  </div>
+</div>
+<div class= "card4" align="center" *ngIf="loginError">
+  <h1 align="center">Błędne dane użytkownika!</h1>
+  <br><h2 align="center">Spróbuj ponownie</h2><br>
+  <div class="log-register" align="center">
+    <p align="center"><button class="signup" (click)="goBack()">Powrót</button></p>
+  </div>
+</div>
+
+
+
+

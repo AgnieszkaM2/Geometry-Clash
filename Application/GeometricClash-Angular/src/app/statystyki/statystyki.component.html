@@ -1,0 +1,45 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li class="act"><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+          <div class="dropdown-content">
+            <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+          </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+<br>
+<br>
+
+<h1 class="ranking-text" align="center">Ranking graczy</h1>
+<div class="rank-container">
+  <table class="rank-table">
+    <thead>
+      <tr>
+         <th>Użytkownik</th>  <th>Postać</th>  <th>Punkty</th>
+       </tr>
+    </thead>
+    <tbody *ngFor='let stat of stats'>
+       <tr>
+        <td>{{ stat.username }}</td>  <td>{{stat.heroname}}</td>  <td>{{stat.points}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

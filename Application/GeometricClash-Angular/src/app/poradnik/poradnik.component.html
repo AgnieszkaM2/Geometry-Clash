@@ -1,0 +1,140 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li class="act"><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+          <div class="dropdown-content">
+            <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+          </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+<br>
+<br>
+<h1 class="tutorial-text" align="center">Poradnik</h1>
+<br>
+<br>
+<div class="tutorials" align="center">
+  <div class="tutorial-content" align="center"><h1>Gra</h1></div>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/log.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>1.  </h2><h3>Aby w pełni skorzystać z naszej gry najpierw się zaloguj.</h3>
+    <h2>2.  </h2><h3>Następnie przejdź do strony gry, klikając w przycisk 'Graj'.</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/2.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>3.  </h2><h3>Rozpocznij grę klikając w przycisk.</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/3.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>4.  </h2><h3>Wybierz postać, którą chcesz grać klikając na jej panel.</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/4.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>5.  </h2><h3>Panel wybranej przez ciebie postaci.</h3>
+    <h2>6.  </h2><h3>Suma wszystkich osiągniętych przez ciebie punktów.</h3>
+    <h2>7.  </h2><h3>Liczba punktów, które osiągnąłeś na tym poziomie.</h3>
+    <h2>8.  </h2><h3>Liczba kroków jaka ci została. Początkowa wartość wynosi 25 i zmniejsza się z każdym kolejjnym ruchem.</h3>
+    <h3>    Po przejściu na kolejny poziom dostaniesz 30 dodatkowych kroków, ale pamiętaj, że jeśli wykorzystasz wszystkie kroki zanim pokonasz przeciwnika,</h3>
+    <h3>    będzie to oznaczało dla ciebie koniec gry.</h3>
+    <h2>9.  </h2><h3>Panel przeciwnika wraz z wyświetlaną wartością jego życia - HP, którego musisz pokonać.</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/5.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>10.  </h2><h3>Grasz i zdobywasz punkty zbijając co najmniej trzy takie same symbole w jednej lini.</h3>
+    <h3>     Nawet jeśli widzisz już na planszy wystarczającą liczbę symboli ułożonych w jednej lini,</h3>
+    <h3>     to pamiętaj, że i tak w dalszym ciągu potrzegujesz jeszcze jednego symbolu, aby je zbić.</h3>
+    <h3>     Oprócz tego, miej także na uwadze, że dla każdej postaci istnieje dodatkowy przelicznik punktów związany z jej żywiołem i zbitym symbolem</h3>
+    <br>
+    <h2>Mag-  </h2><h3>Jego żywiołem jest woda, więc przy zbiciu symbolu wody - kwadratu, twoje punkty z zbicia zostaną pomnożone przez 1.6 .</h3>
+    <h3>      Dodatkowo przy zbiciu symbolu ziemi - trójkąta, twoje punkty z zbicia zostaną pomnożone przez 1.3 .</h3>
+    <h2>Wojownik-  </h2><h3>Jego żywiołem jest ogień, więc przy zbiciu symbolu ognia - koła, twoje punkty z zbicia zostaną pomnożone przez 1.6 .</h3>
+    <h3>      Dodatkowo przy zbiciu symbolu wody - kwadratu, twoje punkty z zbicia zostaną pomnożone przez 1.3 .</h3>
+    <h2>Łucznik-  </h2><h3>Jego żywiołem jest ziemia, więc przy zbiciu symbolu ziemi - trójkąta, twoje punkty z zbicia zostaną pomnożone przez 1.6 .</h3>
+    <h3>      Dodatkowo przy zbiciu symbolu ognia - koła, twoje punkty z zbicia zostaną pomnożone przez 1.3 .</h3>
+    <br>
+    <hr style="width:95%;">
+    <br>
+    <h3>      Czy istnieją jeszcze jakieś niespodzianki, np. może jest inny sposób na zbicie symboli? Graj i przekonaj się sam!</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/6.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>11.  </h2><h3>Aby ułatwic ci przechodzenie naszej gry dodaliśmy pewien bonus.</h3>
+    <h3>     Za każdym razem gdy przechodzisz na wyższy poziom pozostała część punktów z twojego ostatniego zbicia przechodzi razem z tobą!</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/9.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>12.  </h2><h3>Po zakończonej grze, wyświetlone zostaną twoje statystyki z całej rozgrywki.</h3>
+    <h2>13.  </h2><h3>Możesz przejść do rankingu bez zapisywania swoich wyników za pomocą tego przycisku.</h3>
+    <h2>14.  </h2><h3>Możesz jednak także zapisać swój wynik, po czym zostaniesz automatycznie przekierowany do strony rankingu.</h3>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="tutorial-picture" align="center">
+    <img src="./assets/10.jpg">
+  </div>
+  <div class="tutorial-text" align="center">
+    <h2>15.  </h2><h3>Tutaj znajdują się twoje wyniki zapisane do rankingu użytkowników.</h3>
+  </div>
+  <br>
+  <hr style="width:95%;">
+  <br>
+  <div class="tutorial-text" align="center">
+    <h1>Miłej gry i powodzenia!</h1>
+    <br>
+    <h3>Zachęcamy również do skorzystania z reszty dostępnych na naszej stronie funkcjonalności</h3>
+    <br>
+    <hr style="width:95%;">
+  </div>
+</div>
+
+

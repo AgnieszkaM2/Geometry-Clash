@@ -1,0 +1,60 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li class="act"><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+          <div class="dropdown-content">
+            <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+          </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+<br>
+<br>
+<h1 *ngIf="loggedIn" class="friends-text" align="center">Znajomi</h1>
+<br>
+<div class="card2" align="center" *ngIf="!loggedIn">
+  <h1 align="center">Przepraszamy, musisz być zalogowany aby przejrzeć tę stronę</h1><hr>
+  <button routerLink="/logowanie" routerLinkActive="active">Zaloguj się</button>
+</div> 
+
+
+
+<div class="card2" align="center" *ngIf="errorEncountered">
+  <h1 align="center">{{errorMessage}}</h1><hr>
+  <button (click)="reload()" routerLinkActive="active">Znajomi</button>
+</div> 
+
+<div class="friends" *ngIf="loggedIn" align="center">
+  <div class="user-search" align="center">
+    <h2>Wyszukaj użytkownika:</h2><br>
+    <input type="text" #searchInput [(ngModel)]="userSearch" (input)="search()"/><br><br><br>
+    <ul align="center">
+      <li class="users-list" *ngFor="let user of Users" align="center"> <b>Nazwa Użytkownika:</b> {{user.userName}} <button (click)="addFriend(user.id)" style="float:right;">Dodaj do znajomych</button></li>
+    </ul>
+  </div>
+  <div *ngIf="loggedIn" class="friends-list" align="left">
+    <p>Lista znajomych</p><hr>
+    <ul>
+      <li class="friendsList" *ngFor="let friend of friends" align="center"> {{friend.friendName}}</li>
+    </ul>
+  </div>
+
+</div>
+<div class="search-friends" align="center"></div>
+

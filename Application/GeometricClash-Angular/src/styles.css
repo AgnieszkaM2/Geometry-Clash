@@ -1,0 +1,208 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Bilbo Swash Caps');
+body {
+    background-image: url("./assets/tło9.jpg");
+    color: white;
+}
+
+
+.header-bar {
+	background: #00AABB;
+    
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #00AABB; */
+
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  font-size:30px;
+  color: white;
+  text-align: center;
+  padding: 14px 55px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #79dee8;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position:absolute;
+  background-color: #00AABB;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #79dee8;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+a {color: white;}
+a:visited {color: white;}
+a:active {color: white;}
+a {
+    text-decoration: none;
+}
+.logo {
+    img: url("./assets/logo2.png")
+}
+.game-nav-button {
+    img: url("./assets/gra.png");
+    top: 140px;
+    left: 700px;
+    position:absolute;
+    align: center;
+    
+}
+.game-content {
+    img: url("./assets/frame.png");
+
+}
+.game-content img {
+    width: 1200px;
+    height: 800px;
+
+}
+.game-nav-button img {
+    width: 170px;
+    height: 110px;
+ 
+}
+.game-nav-button img:hover {
+    transform: scale(1.1, 1.1);
+}
+.log-register p {
+    height: 70px;
+    width: 200px;
+
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(148, 244, 255, 0.5);
+}
+.log-register p:hover {
+    transform: scale(1.08, 1.08);
+    background-color: rgba(148, 244, 255, 0.1);
+}
+li.act {
+    background-color:#008C9A;
+}
+.card {
+    height: 850px;
+    width: 800px;
+    position: absolute;
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(33, 52, 86, 0.6);
+    left:350px;
+
+}
+.card3 {
+    height: 850px;
+    width: 800px;
+    position: absolute;
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(33, 52, 86, 0.6);
+    left:350px;
+    margin-top: 20px;
+
+}
+.header-register {
+    height: 500px;
+    width: 80px;
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(148, 244, 255, 0.4);
+    align: center;
+    font-size:45px;
+    
+}
+input[type=submit], button {
+    height: 70px;
+    width: 200px;
+    font-size: 25px;
+    color:white;
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(148, 244, 255, 0.5);
+}
+input[type=text], input[type=email], input[type=password] {
+    border: 7px double rgba(15, 55, 99, 0.7);
+    border-radius: 15px;
+    width:300px;
+    height:30px;
+    background-color: rgba(15, 32, 55, 0.7);
+    color:white;
+    font-size: 15px;
+
+}
+
+textarea {
+    border: 7px double rgba(15, 55, 99, 0.7);
+    border-radius: 15px;
+    width:300px;
+    background-color: rgba(15, 32, 55, 0.7);
+    color:white;
+    font-size: 15px;
+    resize: none;
+}
+button:hover {
+    transform: scale(1.08, 1.08);
+    background-color: rgba(148, 244, 255, 0.1);
+}
+.card2 {
+    height: 850px;
+    width: 800px;
+    position: absolute;
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(132, 159, 185, 1);
+    left:350px;
+    background-image: url("./assets/tło9.jpg");
+
+}
+.card4 {
+    height: 100%;
+    width: 800px;
+    position: absolute;
+    border: 7px double #78F6FF;
+    border-radius: 15px; 
+    background-color: rgba(132, 159, 185, 1);
+    left:350px;
+    background-image: url("./assets/tło9.jpg");
+    margin-top: 20px;
+
+}
+.mg-1 {
+    margin: 10px;
+
+}
+

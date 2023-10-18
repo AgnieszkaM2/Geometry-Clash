@@ -1,0 +1,45 @@
+<div class="logo">
+    <div align="center">
+      <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+    </div>
+  </div>
+  <div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+  <div class="header-bar">
+    <div class="menu-bar">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+        <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+        <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+        <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+        <li class="act"><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+        <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+        <li class="dropdown">
+          <a href="" class="dropbtn">Inne</a>
+            <div class="dropdown-content">
+              <a routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+              <a routerLink="/ustawienia" routerLinkActive="active">Ustawienia</a>
+              <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            </div>
+        </li>
+      </ul> 
+    </div>
+  </div>
+  <br>
+
+<h1 align="center">Chat</h1><br>
+<div class="chat" align="center">
+    <div class="chat-messages" align="center">
+        <div class="chat-messages-container">
+        <ul class="received-messages-list">
+            <li class="received-messages-list">Test1</li>
+        </ul>
+        <ul class="chat-messages-list">
+            <li class="chat-messages-list">Test2</li>
+        </ul>
+        </div>
+        <div class="chat-messages-send"> 
+        <input class="chat-messages-input" type="text">
+        <button  class="chat-messages-button" (click)="Send()"> Wyślij </button>
+        </div>
+    </div>
+</div>

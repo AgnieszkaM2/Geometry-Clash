@@ -1,0 +1,32 @@
+.circle{    
+    background-image: url("../../assets/GameAssets/symbole/wersja1/circle.png");       
+    background-repeat: no-repeat;
+    background-size: 100% 100%;  
+}
+
+.square{
+    background-image: url("../../assets/GameAssets/symbole/wersja1/square.png");    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;   
+}
+
+.triangle{
+    background-image: url("../../assets/GameAssets/symbole/wersja1/triangle.png ");    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;    
+}
+
+.box{
+    width: 50px;
+    height: 50px;
+    margin: 7px 15px;
+    display: inline-block;
+}
+
+.box:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.choice{
+    background-color: gold;
+}

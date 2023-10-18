@@ -1,0 +1,4 @@
+<ng-container *ngFor="let symbol of figureArray; let i=index">
+    <div *ngIf="i%boardSide==0"></div>
+    <div class="{{symbol.figure}} box {{symbol.css}}" (click)="swapFigures(symbol)"></div>
+</ng-container>

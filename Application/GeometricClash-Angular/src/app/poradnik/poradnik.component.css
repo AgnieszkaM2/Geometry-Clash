@@ -1,0 +1,24 @@
+.tutorials {
+    display: block;
+    width: 99%;
+    padding: 5px;
+    background-color: rgba(1, 36, 70, 0.507);
+    border-radius: 15px;
+}
+
+.tutorial-text {
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.tutorial-picture img{
+    width: 50%;
+    height: 45%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.tutorials hr{
+    width:80%;
+}

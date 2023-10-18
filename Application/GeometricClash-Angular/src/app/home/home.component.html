@@ -1,0 +1,77 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png" alt></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li class="act"><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+          <div class="dropdown-content">
+            <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+          </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+<div></div>
+<br>
+<br>
+<br>
+<br>
+<h1 class="main-text" align="center">Witamy na stronie gry logicznej Geometric Clash!</h1>
+
+
+  
+
+<!--<br>
+<br>
+<h2 align="center">Info</h2>-->
+<br>
+<br>
+<div *ngIf="loggedIn">
+  <h2 align="center">Witaj {{user.username | titlecase}}, masz {{messageCount}} nowych wiadomości</h2>
+</div>
+
+<div *ngIf="!loggedIn" class="log-register" align="center">
+  <h2 align="center">Zaloguj się lub załóż konto</h2>
+  <p align="center"><a routerLink="/logowanie" routerLinkActive="active"><h2>Zaloguj się</h2></a></p>
+  <p align="center"><a routerLink="/rejestracja" routerLinkActive="active"><h2>Zarejestruj się</h2></a></p>
+</div>
+<div *ngIf="loggedIn">
+    <form [formGroup]="messageform" (ngSubmit)="sendChatMessage()" align="center">
+      <input id="message" type="text" required name="message"  class="form-control mg-1" formControlName="message" placeholder="przywitaj się ;) ">
+      <button type="submit" class="signup" [disabled]="message?.errors?.required">wyślij wiadomość</button>
+
+    </form>
+</div>
+<div class="global-chat" align="center">
+  <ul>
+    <li class="global-chat-message" *ngFor="let message of globalChat"> <b>{{message.user}}</b>:  {{message.message}}</li>
+  </ul>
+</div>
+
+<form align="right" #form action="https://www.paypal.com/donate" method="post" target="_top">
+  <input type="hidden" name="business" value="nsiedlec915@wp.pl" />
+  <input type="hidden" name="currency_code" value="PLN" />
+  <input (click)="form.submit()" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+  <img  alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" />
+  </form>
+
+
+
+		
+		
+		
+    
+

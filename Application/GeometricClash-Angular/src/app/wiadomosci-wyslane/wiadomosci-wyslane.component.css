@@ -1,0 +1,35 @@
+.message-list {
+    display: block;
+    width: 100%;
+    padding: 10px;
+
+}
+
+ul {
+    background-color:#ffffff00;
+    align-self: center;
+    
+}
+
+
+li.message-list {
+
+    width: 100%;
+    font-size: 20px;
+    border: 5px #78F6FF;
+    border-radius: 10px; 
+    background-color: rgba(0, 229, 255, 0.685);
+    margin: 5px;
+    
+
+}
+
+a.messagesRoute{
+    font-size: 30px;
+    border: 10px #78F6FF;
+    border-radius: 10px; 
+    background-color: rgba(0, 229, 255, 0.473);
+    margin: 20px;
+    padding:10px;
+
+}

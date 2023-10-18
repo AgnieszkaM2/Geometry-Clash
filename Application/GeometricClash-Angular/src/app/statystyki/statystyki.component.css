@@ -1,0 +1,20 @@
+.rank-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.rank-table{
+    text-align: center;
+    width: 80%;
+}
+
+.rank-table th{
+    background-color:rgb(15, 5, 68);
+    line-height: 4;
+}
+.rank-table td{
+    background-color:#00AABB;
+    text-shadow: 5px 5px 10px black;
+    line-height: 2.2;
+
+}

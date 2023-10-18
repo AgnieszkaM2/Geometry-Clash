@@ -1,0 +1,17 @@
+.global-chat-message {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border: 5px #78F6FF;
+    border-radius: 10px; 
+    background-color: rgba(0, 229, 255, 0.685);
+    margin: 5px;
+
+    
+}
+.global-chat {
+    margin-top: 20px;
+    background-color:#ffffff00;
+    align-self: center;
+}

@@ -1,0 +1,71 @@
+<div class="logo">
+    <div align="center">
+
+      <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+    </div>
+  </div>
+  <div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+
+  <div class="header-bar">
+    <div class="menu-bar">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+        <li class="act"><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+        <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+        <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+        <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+        <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+        <li class="dropdown">
+          <a href="" class="dropbtn">Inne</a>
+            <div class="dropdown-content">
+            <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+            </div>
+        </li>
+      </ul> 
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="card" align="center">
+    <div class="register-header" align="center"><h1>{{user.username | titlecase}}, do kogo chcesz wysłać wiadomość?</h1><hr></div>
+    <div class="register-form" align="center">
+      <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" align="center" >
+        <div class="form-group" align="center">
+          <br>
+          <label for="receiver">Odbiorca </label><br><hr width="50%">
+          <input  type="text" name="receiver" formControlName="receiver"  class="form-control"  placeholder="">
+        </div>
+        <br>
+        <div class="form-group" align="center">
+          <label for="text">Wiadomość </label><br><hr width="50%">
+          <textarea cols="30" rows="5" type="text" formControlName="text" name="text" minlength="5" maxlength="100" class="form-control"  placeholder=""></textarea>
+        </div>
+        <br>
+
+        <hr width="70%"><br>
+        <button type="submit" class="signup" >Wyślij</button>
+      </form>
+    </div>
+  </div>
+  <div class="card2" align="center" *ngIf="sendMessageSuccess">
+    <h1 align="center">Wiadomość została wysłana</h1><hr>
+    <p *ngIf="redirecting">{{ redirect() }}</p>
+  </div> 
+  <div class="card2" align="center" *ngIf="sendMessageError">
+    <h1 align="center">Wystąpił błąd w trakcie wysyłania</h1>
+    <br><h2 align="center">Spróbuj ponownie</h2><br>
+    <p *ngIf="redirecting">{{ redirect() }}</p>
+  </div> 
+  <br>
+  <br>
+  <div class="ranking-results">
+    <div class="all-user-rankings" align="center"></div>
+    <div class="user-rankings">
+  
+    </div>
+  </div>
+  
+  
+  

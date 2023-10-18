@@ -1,0 +1,104 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li class="g"><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+        <div class="dropdown-content">
+          <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<br>
+<div class="card2" align="center" *ngIf="!loggedIn">
+  <h1 align="center">Zaloguj się, aby zagrać w naszą grę</h1><hr>
+  <button routerLink="/logowanie" routerLinkActive="active">Zaloguj się</button><br><br>
+  <h1 align="center">Jeśli nie masz jeszcze konta - zarejestruj się</h1>
+  <button routerLink="/rejestracja" routerLinkActive="active">Zarejestruj się</button>
+  
+</div> 
+<div *ngIf="loggedIn" class="game-container">
+  <div class="game-start" *ngIf="Started">
+    <p align="center"><button (click)="start_game()"></button></p>
+  </div>
+  <div class="chooseCharacter" *ngIf="Choose">
+    <p align="left" class="choice1"><button (click)="chooseWarrior()"></button></p>
+    <p align="center" class="choice2"><button (click)="chooseMage()"></button></p>
+    <p align="right" class="choice3"><button (click)="chooseArcher()"></button></p>
+  </div>
+  <div class="left-panel" *ngIf="isWarrior">
+    <br>
+    <h2 id="left-panel-title">Wojownik</h2>
+  </div>
+  <div class="left-panel2" *ngIf="isMage">
+    <br>
+    <h2 id="left-panel-title">Mag</h2>
+  </div>
+  <div class="left-panel3" *ngIf="isArcher">
+    <br>
+    <h2 id="left-panel-title">Łucznik</h2>
+  </div>
+  <h2 class="points-total">Suma punktów: </h2>
+  <h2 class="totalValue">{{plansza.fullPoints}}</h2>
+
+  <div class="middle-panel">
+    <div class="left-middle-panel">
+      <div class="points-middle-panel">
+        <br><br><br>
+
+        <h2 id="points-title">Punkty z tego poziomu: {{plansza.points}}</h2>
+        <h2 id="points-title">Pozostałe kroki: {{plansza.steps}}</h2>
+      </div>
+      <div class="game-board-middle-panel">
+        <app-plansza #plansza [isWarrior]="isWarrior" [isMage]="isMage" [isArcher]="isArcher"></app-plansza>
+      </div>
+    </div>
+    <div class="right-middle-panel">
+      <br><br><br>
+      <h2 id="skills-title">Panel ze skillami</h2>
+    </div>
+  </div>
+
+  <div class="right-panel" *ngIf="plansza.levelOne">
+    <br>
+    <h2 id="right-panel-title">Poziom 1</h2>
+    <h2 class="hp1">HP : {{plansza.hpBossOne}}</h2>
+  </div>
+  <div class="right-panel2" *ngIf="plansza.levelTwo">
+    <br>
+    <h2 id="right-panel-title">Poziom 2</h2>
+    <h2 class="hp2">HP : {{plansza.hpBossTwo}}</h2>
+  </div>
+  <div class="right-panel3" *ngIf="plansza.levelThree">
+    <br>
+    <h2 id="right-panel-title">Poziom 3</h2>
+    <h2 class="hp3">HP : {{plansza.hpBossThree}}</h2>
+  </div>
+  <div class="gameOver" align="center" *ngIf="plansza.isGameOver">
+    <h1 align="center">KONIEC GRY!</h1>
+    <h2 align="center">Postać:                   {{plansza.heroName}}</h2>
+    <h2 align="center">Punkty za pierwszy etap:  {{plansza.pointsLevelOne}}</h2>
+    <h2 align="center">Punkty za drugi etap:     {{plansza.pointsLevelTwo}}</h2>
+    <h2 align="center">Punkty za trzeci etap:    {{plansza.pointsLevelThree}}</h2>
+    <h2 align="center">Punkty razem:             {{plansza.fullPoints}}</h2>
+    <div class="log-register" align="center">
+      <p align="center"><a routerLink="/statystyki" routerLinkActive="active"><h2>Przejdź do rankingu</h2></a></p>
+      <button align="center" (click)="plansza.getMember(); button_disable()" [disabled]="buttonDisabled">Zapisz wynik</button>
+    </div>
+  </div>
+</div>

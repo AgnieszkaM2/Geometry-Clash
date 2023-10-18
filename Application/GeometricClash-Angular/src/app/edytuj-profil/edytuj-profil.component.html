@@ -1,0 +1,79 @@
+<div class="logo">
+    <div align="center">
+      <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+    </div>
+  </div>
+  <div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+  <div class="header-bar">
+    <div class="menu-bar">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+        <li class="act"><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+        <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+        <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+        <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+        <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+        <li class="dropdown">
+          <a href="" class="dropbtn">Inne</a>
+            <div class="dropdown-content">
+              <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+            </div>
+        </li>
+      </ul> 
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="card" align="center">
+    <div class="register-header" align="center"><h1>{{user.username | titlecase}}, edytuj swój profil</h1><hr></div>
+    <div class="register-form" align="center">
+      <form #editForm="ngForm" (ngSubmit)="updateMember()" align="center" >
+        <div class="form-group" align="center">
+          <br>
+          <label for="firstname">Imię </label><br><hr width="50%">
+          <input [(ngModel)]="member.firstname" type="text" name="firstname"  class="form-control"  placeholder="">
+        </div>
+        <br>
+        <div class="form-group" align="center">
+          <label for="lastName">Nazwisko </label><br><hr width="50%">
+          <input [(ngModel)]="member.lastname" type="text"  name="lastname" maxlength="50" class="form-control"  placeholder="">
+        </div>
+        <br>
+        <div class="form-group" align="center">
+          <label for="country">Narodowość </label><br><hr width="50%">
+          <input [(ngModel)]="member.country" type="text"  name="country" class="form-control"  placeholder="">
+        </div>
+        <br>
+        <div class="form-group" align="center">
+          <label for="city">Miasto </label><br><hr width="50%">
+          <input [(ngModel)]="member.city" type="text"  name="city"  placeholder="">
+        
+        </div>
+        <br><br><hr width="70%"><br>
+        <button type="submit" class="signup" >Edytuj profil</button>
+      </form>
+    </div>
+  </div>
+  <div class="card2" align="center" *ngIf="editProfileSuccess">
+    <h1 align="center">Edycja profilu przebiegła pomyślnie</h1><hr>
+    <p *ngIf="redirecting">{{ redirect() }}</p>
+  </div> 
+  <div class="card2" align="center" *ngIf="editProfileError">
+    <h1 align="center">Wystąpił błąd w trakcie wysyłania</h1>
+    <br><h2 align="center">Spróbuj ponownie</h2><br>
+    <p *ngIf="redirecting">{{ redirect() }}</p>
+  </div> 
+    
+  <br>
+  <br>
+  <div class="ranking-results">
+    <div class="all-user-rankings" align="center"></div>
+    <div class="user-rankings">
+  
+    </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,52 @@
+<div class="logo">
+  <div align="center">
+    <a routerLink="/home" routerLinkActive="active"><img src="./assets/logo2.png"></a>
+  </div>
+</div>
+<div class="game-nav-button"><a routerLink="/gra" routerLinkActive="active"><img src="./assets/gra.png"></a></div>
+<div class="header-bar">
+  <div class="menu-bar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Strona główna</a></li>
+      <li><a routerLink="/statystyki" routerLinkActive="active">Ranking</a></li>
+      <li><a routerLink="/poradnik" routerLinkActive="active">Poradnik</a></li>
+      <li><a routerLink="/gra" routerLinkActive="active"></a></li>
+      <li><a routerLink="/znajomi" routerLinkActive="active">Znajomi</a></li>
+      <li><a routerLink="/wiadomosci" routerLinkActive="active">Wiadomości</a></li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Inne</a>
+        <div class="dropdown-content">
+            <a *ngIf="!loggedIn" routerLink="/logowanie" routerLinkActive="active">Logowanie</a>
+            <a routerLink="/profil" routerLinkActive="active">Profil</a>
+            <a href="#" *ngIf="loggedIn" (click)="logout()">wyloguj</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<br>
+<br>
+<h1 *ngIf="loggedIn" class="profile-text" align="center">Profil użytkownika</h1>
+<br>
+<br>
+<div class="card2" align="center" *ngIf="!loggedIn">
+  <h1 align="center">Przepraszamy, musisz być zalogowany aby przejrzeć tę stronę</h1><hr>
+  <button routerLink="/logowanie" routerLinkActive="active">Zaloguj się</button>
+</div> 
+<div *ngIf="loggedIn" class="user-profile">
+  <div class="user-picture"></div>
+  <form #editForm="ngForm" (ngSubmit)="updateMember()">
+    <div class="user-details" align="center">
+      <p id="name">Imie: {{member.firstname}}</p>
+      <p id="lastname">Nazwisko: {{member.lastname}}</p>
+      <p id="country">Narodowość: {{member.country}}</p>
+      <p id="town">Miasto: {{member.city}}</p>
+      <p id="email">Email: {{member.email}}</p>
+      <a routerLink="/edytuj-profil" routerLinkActive="active">
+        <button type="submit" class="signup">Edytuj profil</button>
+      </a>
+
+    </div>
+
+  </form>
+</div>
